@@ -12,25 +12,161 @@ function App() {
       { id: 1, name: 'John Doe', selectedDates: [], color: getRandomColor(), department: 'Java' },
       { id: 2, name: 'Jane Smith', selectedDates: [], color: getRandomColor(), department: 'Asp' },
       { id: 3, name: 'Michael Johnson', selectedDates: [], color: getRandomColor(), department: 'Satış' },
-         { id: 4, name: 'Michael Williams', selectedDates: [], color: getRandomColor(), department: 'Pazarlama' },
-         { id: 5, name: 'Emily Davis', selectedDates: [], color: getRandomColor(), department: 'Teknoloji' },
-         { id: 6, name: 'Daniel Wilson', selectedDates: [], color: getRandomColor(), department: 'Üretim' },
-         { id: 7, name: 'Olivia Brown', selectedDates: [], color: getRandomColor(), department: 'Müşteri Hizmetleri' },
-         { id: 8, name: 'Sophia Taylor', selectedDates: [], color: getRandomColor(), department: 'Finans' },
-         { id: 9, name: 'Liam Martinez', selectedDates: [], color: getRandomColor(), department: 'Lojistik' },
-         { id: 10, name: 'Ava Anderson', selectedDates: [], color: getRandomColor(), department: 'Ar-Ge' }
+         { id: 4, name: 'Michael Williams', selectedDates: [], color: getRandomColor(), department: 'Java' },
+         { id: 5, name: 'Emily Davis', selectedDates: [], color: getRandomColor(), department: 'Java' },
+         { id: 6, name: 'Daniel Wilson', selectedDates: [], color: getRandomColor(), department: 'Java' },
+         { id: 7, name: 'Olivia Brown', selectedDates: [], color: getRandomColor(), department: 'Java' },
+         { id: 8, name: 'Sophia Taylor', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+         { id: 9, name: 'Liam Martinez', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+         { id: 10, name: 'Ava Anderson', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+           { id: 4, name: 'Michael Williams', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                  { id: 5, name: 'Emily Davis', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                  { id: 6, name: 'Daniel Wilson', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                  { id: 7, name: 'Olivia Brown', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                  { id: 8, name: 'Sophia Taylor', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                  { id: 9, name: 'Liam Martinez', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                  { id: 10, name: 'Ava Anderson', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                    { id: 4, name: 'Michael Williams', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                           { id: 5, name: 'Emily Davis', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                           { id: 6, name: 'Daniel Wilson', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                           { id: 7, name: 'Olivia Brown', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                           { id: 8, name: 'Sophia Taylor', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                           { id: 9, name: 'Liam Martinez', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                           { id: 10, name: 'Ava Anderson', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                             { id: 4, name: 'Michael Williams', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                    { id: 5, name: 'Emily Davis', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                    { id: 6, name: 'Daniel Wilson', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                    { id: 7, name: 'Olivia Brown', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                    { id: 8, name: 'Sophia Taylor', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                    { id: 9, name: 'Liam Martinez', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                    { id: 10, name: 'Ava Anderson', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                      { id: 4, name: 'Michael Williams', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                             { id: 5, name: 'Emily Davis', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                             { id: 6, name: 'Daniel Wilson', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                             { id: 7, name: 'Olivia Brown', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                             { id: 8, name: 'Sophia Taylor', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                             { id: 9, name: 'Liam Martinez', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                             { id: 10, name: 'Ava Anderson', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                               { id: 4, name: 'Michael Williams', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                      { id: 5, name: 'Emily Davis', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                      { id: 6, name: 'Daniel Wilson', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                      { id: 7, name: 'Olivia Brown', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                      { id: 8, name: 'Sophia Taylor', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                      { id: 9, name: 'Liam Martinez', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                      { id: 10, name: 'Ava Anderson', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                        { id: 4, name: 'Michael Williams', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                               { id: 5, name: 'Emily Davis', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                               { id: 6, name: 'Daniel Wilson', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                               { id: 7, name: 'Olivia Brown', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                               { id: 8, name: 'Sophia Taylor', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                               { id: 9, name: 'Liam Martinez', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                               { id: 10, name: 'Ava Anderson', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                 { id: 4, name: 'Michael Williams', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                        { id: 5, name: 'Emily Davis', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                        { id: 6, name: 'Daniel Wilson', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                        { id: 7, name: 'Olivia Brown', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                        { id: 8, name: 'Sophia Taylor', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                        { id: 9, name: 'Liam Martinez', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                        { id: 10, name: 'Ava Anderson', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                          { id: 4, name: 'Michael Williams', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                 { id: 5, name: 'Emily Davis', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                 { id: 6, name: 'Daniel Wilson', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                 { id: 7, name: 'Olivia Brown', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                 { id: 8, name: 'Sophia Taylor', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                 { id: 9, name: 'Liam Martinez', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                 { id: 10, name: 'Ava Anderson', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                   { id: 4, name: 'Michael Williams', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                          { id: 5, name: 'Emily Davis', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                          { id: 6, name: 'Daniel Wilson', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                          { id: 7, name: 'Olivia Brown', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                          { id: 8, name: 'Sophia Taylor', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                          { id: 9, name: 'Liam Martinez', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                          { id: 10, name: 'Ava Anderson', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                            { id: 4, name: 'Michael Williams', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                   { id: 5, name: 'Emily Davis', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                   { id: 6, name: 'Daniel Wilson', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                   { id: 7, name: 'Olivia Brown', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                   { id: 8, name: 'Sophia Taylor', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                                   { id: 9, name: 'Liam Martinez', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                                   { id: 10, name: 'Ava Anderson', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                                     { id: 4, name: 'Michael Williams', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                            { id: 5, name: 'Emily Davis', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                            { id: 6, name: 'Daniel Wilson', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                            { id: 7, name: 'Olivia Brown', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                            { id: 8, name: 'Sophia Taylor', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                                            { id: 9, name: 'Liam Martinez', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                                            { id: 10, name: 'Ava Anderson', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                                              { id: 4, name: 'Michael Williams', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                     { id: 5, name: 'Emily Davis', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                     { id: 6, name: 'Daniel Wilson', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                     { id: 7, name: 'Olivia Brown', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                     { id: 8, name: 'Sophia Taylor', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                                                     { id: 9, name: 'Liam Martinez', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                                                     { id: 10, name: 'Ava Anderson', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                                                       { id: 4, name: 'Michael Williams', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                              { id: 5, name: 'Emily Davis', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                              { id: 6, name: 'Daniel Wilson', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                              { id: 7, name: 'Olivia Brown', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                              { id: 8, name: 'Sophia Taylor', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                                                              { id: 9, name: 'Liam Martinez', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                                                              { id: 10, name: 'Ava Anderson', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                                                                { id: 4, name: 'Michael Williams', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                                       { id: 5, name: 'Emily Davis', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                                       { id: 6, name: 'Daniel Wilson', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                                       { id: 7, name: 'Olivia Brown', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                                       { id: 8, name: 'Sophia Taylor', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                                                                       { id: 9, name: 'Liam Martinez', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                                                                       { id: 10, name: 'Ava Anderson', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                                                                         { id: 4, name: 'Michael Williams', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                                                { id: 5, name: 'Emily Davis', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                                                { id: 6, name: 'Daniel Wilson', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                                                { id: 7, name: 'Olivia Brown', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                                                { id: 8, name: 'Sophia Taylor', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                                                                                { id: 9, name: 'Liam Martinez', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                                                                                { id: 10, name: 'Ava Anderson', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                                                                                  { id: 4, name: 'Michael Williams', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                                                         { id: 5, name: 'Emily Davis', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                                                         { id: 6, name: 'Daniel Wilson', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                                                         { id: 7, name: 'Olivia Brown', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                                                         { id: 8, name: 'Sophia Taylor', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                                                                                         { id: 9, name: 'Liam Martinez', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                                                                                         { id: 10, name: 'Ava Anderson', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                                                                                           { id: 4, name: 'Michael Williams', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                                                                  { id: 5, name: 'Emily Davis', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                                                                  { id: 6, name: 'Daniel Wilson', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                                                                  { id: 7, name: 'Olivia Brown', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                                                                  { id: 8, name: 'Sophia Taylor', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                                                                                                  { id: 9, name: 'Liam Martinez', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                                                                                                  { id: 10, name: 'Ava Anderson', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                                                                                                    { id: 4, name: 'Michael Williams', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                                                                           { id: 5, name: 'Emily Davis', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                                                                           { id: 6, name: 'Daniel Wilson', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                                                                           { id: 7, name: 'Olivia Brown', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                                                                           { id: 8, name: 'Sophia Taylor', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                                                                                                           { id: 9, name: 'Liam Martinez', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                                                                                                           { id: 10, name: 'Ava Anderson', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                                                                                                             { id: 4, name: 'Michael Williams', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                                                                                    { id: 5, name: 'Emily Davis', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                                                                                    { id: 6, name: 'Daniel Wilson', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                                                                                    { id: 7, name: 'Olivia Brown', selectedDates: [], color: getRandomColor(), department: 'Java' },
+                                                                                                                                                                                    { id: 8, name: 'Sophia Taylor', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                                                                                                                    { id: 9, name: 'Liam Martinez', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+                                                                                                                                                                                    { id: 10, name: 'Ava Anderson', selectedDates: [], color: getRandomColor(), department: 'Asp' }
+
+
 
 
     ];
   const availableDepartments = ['Asp', 'Java', 'Satış',];
   const [employees, setEmployees] = useState(initialEmployees);
-
-
+  const [selectedDepartment, setSelectedDepartment] = useState('');
+  const filteredEmployees = employees.filter(employee => employee.department === selectedDepartment);
   const [showCalendars, setShowCalendars] = useState(false);
   const [newEmployeeName, setNewEmployeeName] = useState('');
   const [newEmployeeDays, setNewEmployeeDays] = useState([]);
   const [newEmployeeDepartment, setNewEmployeeDepartment] = useState('');
   const [selectedWeek, setSelectedWeek] = useState(null);
+
 
   const handleDateSelect = (employeeId, selectedDate) => {
     if (selectedWeek === null) {
@@ -45,6 +181,11 @@ function App() {
     }
 
     const employee = employees.find(emp => emp.id === employeeId);
+
+     if (selectedWeek !== getWeekNumber(new Date(selectedDate))[1]) {
+        alert('Sadece seçilen ilk tarihin haftası için tarih seçimi yapabilirsiniz.');
+        return;
+      }
 
     if (selectedWeek !== getWeekNumber(new Date(selectedDate))[1]) {
       alert('Sadece seçilen ilk tarihin haftası için tarih seçimi yapabilirsiniz.');
@@ -170,73 +311,103 @@ function App() {
   const thursdayRef = useRef(null);
   const fridayRef = useRef(null);
 
+  const clearAllDates = () => {
+    const updatedEmployees = employees.map(employee => ({
+      ...employee,
+      selectedDates: [],
+    }));
 
+    setEmployees(updatedEmployees);
+  };
 
   return (
     <div className="App">
       <div className="container">
         <h1>Çalışan Takvimi</h1>
         <div className="add-employee">
-          <input
-            type="text"
-            placeholder="Çalışan Adı"
-            value={newEmployeeName}
-            onChange={e => setNewEmployeeName(e.target.value)}
-          />
-          <select
-              value={newEmployeeDepartment}
-              onChange={e => setNewEmployeeDepartment(e.target.value)}
-            >
-              <option value="">Departman Seçin</option>
-              {availableDepartments.map((department, index) => (
-                <option key={index} value={department}>
-                  {department}
-                </option>
-              ))}
-            </select>
-            <input
-              type="date"
-              value={newEmployeeDays}
-              onChange={e => setNewEmployeeDays([...newEmployeeDays, e.target.value])}
-            />
-          <button onClick={addEmployee}>Çalışan Ekle</button>
-        </div>
-        {employees.map(employee => (
+           <div className="department-selection">
 
-                  <div key={employee.id} className={`employee employee${employee.id}`}>
-                    <div className="employee-header" onClick={() => toggleEmployeeExpand(employee.id)}>
-                      <h2>{employee.name}</h2>
-                      <p>Departman: {employee.department}</p>
-                    </div>
-                    {expandedEmployeeId === employee.id && (
-                      <div className="employee-details">
-                        <input
-                          className="date-input"
-                          type="date"
-                          onChange={e => handleDateSelect(employee.id, e.target.value)}
-                        />
-                        <div className="selected-dates">
-                          <p className="selecteddates">Seçilen Tarihler:</p>
-                          {employee.selectedDates.map((date, index) => (
-                            <div key={index} className="selected-date">
-                              <span>{date}</span>
-                              <button onClick={() => handleDateDelete(employee.id, date)}>Sil</button>
-                            </div>
-                          ))}
-                        </div>
-                        <div className="selected-count">Toplam Seçilen Gün: {employee.selectedDates.length}</div>
-                        <button onClick={() => removeEmployee(employee.id)}>Çalışanı Sil</button>
-                      </div>
-                    )}
-                  </div>
-                ))}
+               <select
+                 value={selectedDepartment}
+                 onChange={e => setSelectedDepartment(e.target.value)}
+               >
+                 <option value="">Departman Seçin</option>
+                 {availableDepartments.map((department, index) => (
+                   <option key={index} value={department}>
+                     {department}
+                   </option>
+                 ))}
+               </select>
+             </div>
+
+             <div className="employee-info">
+               <input
+                 type="text"
+                 placeholder="Çalışan Adı"
+                 value={newEmployeeName}
+                 onChange={e => setNewEmployeeName(e.target.value)}
+               />
+               <select
+                 value={newEmployeeDepartment}
+                 onChange={e => setNewEmployeeDepartment(e.target.value)}
+               >
+                 <option value="">Departman Seçin</option>
+                 {availableDepartments.map((department, index) => (
+                   <option key={index} value={department}>
+                     {department}
+                   </option>
+                 ))}
+               </select>
+               <input
+                 type="date"
+                 value={newEmployeeDays}
+                 onChange={e => setNewEmployeeDays([...newEmployeeDays, e.target.value])}
+               />
+             </div>
+             <div className="add-button">
+               <button onClick={addEmployee}>Çalışan Ekle</button>
+             </div>
+
+        </div>
+       {filteredEmployees.map(employee => (
+         <div key={employee.id} className={`employee employee${employee.id}`}>
+           <div className="employee-header" onClick={() => toggleEmployeeExpand(employee.id)}>
+             <h2>{employee.name}</h2>
+             <p>Departman: {employee.department}</p>
+           </div>
+           {expandedEmployeeId === employee.id && (
+             <div className="employee-details">
+               <input
+                 className="date-input"
+                 type="date"
+                 onChange={e => handleDateSelect(employee.id, e.target.value)}
+               />
+               <div className="selected-dates">
+                 <p className="selecteddates">Seçilen Tarihler:</p>
+                 {employee.selectedDates.map((date, index) => (
+                   <div key={index} className="selected-date">
+                     <span>{date}</span>
+                     <button onClick={() => handleDateDelete(employee.id, date)}>Sil</button>
+                   </div>
+                 ))}
+               </div>
+               <div className="selected-count">Toplam Seçilen Gün: {employee.selectedDates.length}</div>
+               <button onClick={() => removeEmployee(employee.id)}>Çalışanı Sil</button>
+             </div>
+           )}
+         </div>
+       ))}
         <div className="button-container">
           <button className="view-calendar-button" onClick={toggleCalendars}>
             Takvimi Görüntüle
           </button>
+
           <button className="save-data-button" onClick={saveDataToDatabase}>
             Veriyi Kaydet
           </button>
+          <div className="clear-week">
+                      <button onClick={clearAllDates}>Haftayı Sil</button>
+                    </div>
         </div>
         {showCalendars && (
           <div className="calendars-container">
