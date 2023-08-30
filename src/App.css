@@ -421,7 +421,7 @@ h1 {
   font-weight: bold;
 }
 
-..calendar-group-container {
+.calendar-group-container {
    display: flex;
    flex-wrap: wrap;
    justify-content: space-between;
@@ -578,3 +578,66 @@ select:focus {
   cursor: pointer;
   color: #f44336;
 }
+.add-employee {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.department-selection {
+  border-right: 1px solid #ccc;
+  padding-right: 10px;
+  margin-left: 10px;
+}
+
+.department-selection select {
+  width: 120px;
+}
+
+.add-employee select,
+.add-employee input[type="text"],
+.add-employee input[type="date"],
+.add-employee button {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.add-employee select {
+  width: 120px;
+}
+
+.add-button button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.clear-week {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.clear-week button {
+  background-color: #ff5733;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.clear-week button:hover {
+  background-color: #e64c00;
+}
+
+
