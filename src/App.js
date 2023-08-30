@@ -18,7 +18,7 @@ function App() {
       { id: 7, name: 'Olivia Brown', selectedDates: [], color: getRandomColor(), department: 'Java' },
       { id: 8, name: 'Sophia Taylor', selectedDates: [], color: getRandomColor(), department: 'Asp' },
       { id: 9, name: 'Liam Martinez', selectedDates: [], color: getRandomColor(), department: 'Asp' },
-      { id: 10, name: 'Ava Anderson', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+     // { id: 10, name: 'Ava Anderson', selectedDates: [], color: getRandomColor(), department: 'Asp' },
 
 
 
