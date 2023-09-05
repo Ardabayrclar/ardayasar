@@ -1,0 +1,682 @@
+/*.App {*/
+/*  text-align: center;*/
+/*}*/
+
+/*.App-logo {*/
+/*  height: 40vmin;*/
+/*  pointer-events: none;*/
+/*}*/
+
+/*@media (prefers-reduced-motion: no-preference) {*/
+/*  .App-logo {*/
+/*    animation: App-logo-spin infinite 20s linear;*/
+/*  }*/
+/*}*/
+
+/*.App-header {*/
+/*  background-color: #282c34;*/
+/*  min-height: 100vh;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  align-items: center;*/
+/*  justify-content: center;*/
+/*  font-size: calc(10px + 2vmin);*/
+/*  color: white;*/
+/*}*/
+
+/*.App-link {*/
+/*  color: #61dafb;*/
+/*}*/
+
+/*@keyframes App-logo-spin {*/
+/*  from {*/
+/*    transform: rotate(0deg);*/
+/*  }*/
+/*  to {*/
+/*    transform: rotate(360deg);*/
+/*  }*/
+/*}*/
+
+/* App.css */
+/* Genel stil ayarları */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+/* Seçilen tarihler bölümü stil ayarları */
+.selecteddates {
+  margin-top: 1rem;
+}
+
+.selecteddates p {
+  margin: 0;
+  font-size: 1.1rem; /* Font büyüklüğü ayarı */
+  font-weight: bold; /* Kalın yazı stil ayarı */
+  color: #333; /* Yazı rengi ayarı */
+  margin-bottom: 0.5rem; /* Alttaki boşluk ayarı */
+}
+/* Ana konteyner stil ayarları */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Başlık stil ayarları */
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Çalışan kutusu stil ayarları */
+.employee {
+  background-color: #95fcaf;
+  border-radius: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.employee h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  margin-right:5rem;
+}
+/* ... (existing styles) */
+
+.employee-color-picker {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.color-picker-label {
+  margin-right: 10px;
+}
+
+.color-picker {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Tarih giriş alanı stil ayarları */
+.date-input {
+  border: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  margin-right:1rem;
+}
+
+/* Seçilen tarihler bölümü stil ayarları */
+.selected-dates {
+  margin-top: 1rem;
+  margin-left:1rem;
+}
+
+.selected-dates p {
+  margin: 0;
+}
+
+.selected-dates ul {
+  list-style: none;
+  padding: 0;
+
+
+}
+
+.selected-dates li {
+  margin-bottom: 1rem;
+  margin-right:1rem;
+}
+
+/* Takvimi görüntüle butonu stil ayarları */
+.view-calendar-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+
+}
+
+/* Takvimlerin bulunduğu konteyner stil ayarları */
+.calendars-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+/* Hafta günleri stil ayarları */
+.week-days {
+  display: flex;
+  margin-bottom: 1rem;
+
+}
+
+.week-day {
+  flex: 1;
+  text-align: center;
+  padding: 0.5rem;
+  border: 2px solid white;
+  background-color: #f5f5f5;
+  background-color:#fcea6f;
+}
+
+/* Takvim gruplarının bulunduğu konteyner stil ayarları */
+.calendar-group-container {
+  display: flex;
+  flex-direction: column;
+
+}
+
+/* Takvim grup stil ayarları */
+.calendar-group {
+  margin-bottom: 2rem;
+}
+
+/* Çalışan kutularının bulunduğu konteyner stil ayarları */
+.employee-boxes {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+/* Tek bir çalışan kutusu stil ayarları */
+.employee-box {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  text-align: center;
+  background-color: #a8a8a7;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+}
+
+.employee-box span {
+  display: block;
+  font-weight: bold;
+  margin-top: 0.25rem;
+}
+
+/* Çalışan renkleri */
+.employee-box.employee1 {
+  background-color: #FF5733;
+}
+
+.employee-box.employee2 {
+  background-color: #33FF57;
+}
+
+.employee-box.employee3 {
+  background-color: #FFD700;
+}
+
+.employee-box.employee4 {
+  background-color: #5F9EA0;
+}
+
+.employee-box.employee5 {
+  background-color: #800080;
+}
+
+.employee-box.employee6 {
+  background-color: #FF851B;
+}
+
+.employee-box.employee7 {
+  background-color: #39CCCC;
+}
+
+.employee-box.employee8 {
+  background-color: #FF4136;
+}
+
+.employee-box.employee9 {
+  background-color: #0074D9;
+}
+
+/* Çalışanları sil butonu stil ayarları */
+.employee button {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+}
+
+/* Çalışan ekleme alanı stil ayarları */
+.add-employee {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.add-employee input[type="text"] {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+}
+
+.add-employee input[type="date"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0 5px 5px 0;
+  outline: none;
+}
+
+.add-employee button {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  margin-left: 0.5rem;
+}
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.view-calendar-button,
+.save-data-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.save-data-button {
+  background-color: #28a745;
+  border-radius:1rem;
+}
+
+.view-calendar-button:hover,
+.save-data-button:hover {
+  background-color: #0056b3;
+}
+#employeeDays{
+  padding: 10px 20px;
+  font-size: 16px;
+
+}
+/* App.css */
+.App {
+  text-align: center;
+}
+
+.container {
+  margin: auto;
+  width: 100%;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-employee {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  width: 97%;
+}
+
+.add-employee input {
+  flex: 1;
+  padding: 8px;
+
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.add-employee button {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.employee {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.employee h2 {
+  margin-top: 0;
+}
+
+.date-input {
+  margin: 10px 0;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.selected-dates {
+  margin-top: 10px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+
+.selected-date {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0;
+  padding: 5px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.selected-date button {
+  background-color: #ff6347;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.selected-count {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.button-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.view-calendar-button,
+.save-data-button {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.view-calendar-button:hover,
+.save-data-button:hover {
+  background-color: #0056b3;
+}
+
+.calendars-container {
+  margin-top: 20px;
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+}
+
+.week-days {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.week-day {
+  flex: 1;
+  text-align: center;
+  font-weight: bold;
+}
+
+.calendar-group-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.calendar-group {
+  flex-basis: calc(20% - 10px);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.calendar-group:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-group h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.employee-boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+.employee-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 12px;
+  color: #333;
+  transition: background-color 0.3s;
+}
+
+.employee-box span {
+  text-align: center;
+  font-weight: bold;
+}
+
+.employee-box button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 2px 5px;
+  cursor: pointer;
+  font-size: 10px;
+  transition: background-color 0.3s;
+}
+
+.employee-box button:hover {
+  background-color: #d32f2f;
+}
+
+
+
+.employee-box span {
+  font-size: 14px;
+}
+
+.employee-box.employee1 {
+  background-color: #FF5733;
+}
+
+.employee-box.employee2 {
+  background-color: #33FF57;
+}
+
+.employee-box.employee3 {
+  background-color: #FFD700;
+}
+
+.employee-box.employee4 {
+  background-color: #5F9EA0;
+}
+
+.employee-box.employee5 {
+  background-color: #800080;
+}
+.delete-button {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  margin-left: 0.5rem;
+}
+select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  width: 25%;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  margin-right:1rem;
+  margin-left:1rem;
+}
+
+select:focus {
+  border-color: #007bff;
+}
+.employee {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.employee-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.employee-details {
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.employee-details .date-input {
+  margin: 10px 0;
+}
+
+.selected-date {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.selected-date button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #f44336;
+}
+.add-employee {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.department-selection {
+  border-right: 1px solid #ccc;
+  padding-right: 10px;
+  margin-left: 10px;
+}
+
+.department-selection select {
+  width: 120px;
+}
+
+.add-employee select,
+.add-employee input[type="text"],
+.add-employee input[type="date"],
+.add-employee button {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.add-employee select {
+  width: 120px;
+}
+
+.add-button button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.clear-week {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.clear-week button {
+  background-color: #ff5733;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.clear-week button:hover {
+  background-color: #e64c00;
+}
+
+

@@ -1,4 +1,4 @@
-import React, { useState,useRef } from 'react';
+import React, {Fragment, useRef, useState} from 'react';
 import './App.css';
 
 const colorOptions = ['#FF5733', '#33FF57', '#FFD700', '#5F9EA0', '#800080','#f27e9f','#ad9df5','#f5be9d','#02f7be','#8102f7npm '];
@@ -18,7 +18,7 @@ function App() {
       { id: 7, name: 'Olivia Brown', selectedDates: [], color: getRandomColor(), department: 'Java' },
       { id: 8, name: 'Sophia Taylor', selectedDates: [], color: getRandomColor(), department: 'Asp' },
       { id: 9, name: 'Liam Martinez', selectedDates: [], color: getRandomColor(), department: 'Asp' },
-     // { id: 10, name: 'Ava Anderson', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+      { id: 10, name: 'Ava Anderson', selectedDates: [], color: getRandomColor(), department: 'Asp' },
 
 
 
@@ -53,10 +53,7 @@ function App() {
         return;
       }
 
-    if (selectedWeek !== getWeekNumber(new Date(selectedDate))[1]) {
-      alert('Sadece seçilen ilk tarihin haftası için tarih seçimi yapabilirsiniz.');
-      return;
-    }
+
 
     if (employee.selectedDates.length >= 5) {
       alert('En fazla 5 gün seçebilirsiniz.');
