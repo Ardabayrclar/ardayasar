@@ -5,7 +5,7 @@ import './App.css';
 
 //components
 
-import Input from "./Components/Input";
+import ListAll from "./Components/ListAll";
 //------------------------------------------burdan sonrasi (eski App.js)
 const colorOptions = ['#FF5733', '#33FF57', '#FFD700', '#5F9EA0', '#800080','#f27e9f','#ad9df5','#f5be9d','#02f7be','#8102f7npm '];
 
@@ -249,6 +249,9 @@ function App() {
                         <button onClick={addEmployee}>Çalışan Ekle</button>
                     </div>
 
+                </div>
+                <div className="container">
+                    <ListAll />
                 </div>
                 {filteredEmployees.map(employee => (
                     <div key={employee.id} className={`employee employee${employee.id}`}>

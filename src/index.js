@@ -26,62 +26,66 @@ app.use(express.json());
 
 //ROUTES
 
-//post todo
-app.post("/todos", async (req,res) => {
-  try {
-      const {description} = req.body;
-      const newTodo = await pool.query(
-          "INSERT INTO todo (description)VALUES ($1) returning *",
-          [description]);
-      res.json(newTodo.rows[0]);
-  } catch (err){
-      console.error(err.message);
-  }
-
-});
-// get all todos
-app.get("/todos", async (req, res) =>{
+//post emp
+app.post("/createEmp", async (req, res) => {
     try {
-        const allTodos = await pool.query("SELECT * FROM todo");
-        res.json(allTodos.rows)
-    }catch (err){
-        console.error(err.message)
-    }
-})
-
-//get a todo
-app.get("/todos/:id", async (req, res) =>{
-    try {
-        const {id} = req.params;
-        const todo = await  pool.query("SELECT * FROM todo WHERE todo_id = $1",[id])
-        res.json(todo.rows[0])
-    }catch (err){
-        console.error(err.message)
-    }
-})
-
-//update todo
-app.put("/todos/:id", async (req,res) => {
-    try{
-        const {id} = req.params;
-        const {description} = req.body;
-        const updateTodo = await pool.query(
-            "UPDATE todo SET description = $1 WHERE todo_id = $2",
-            [description, id]
+        const { id, name, department_id, role_id } = req.body;
+        const newEmp = await pool.query(
+            "INSERT INTO employees (id, name, department_id, role_id) VALUES ($1, $2, $3, $4) RETURNING *",
+            [id, name, department_id, role_id]
         );
-        res.json("Updated!")
-    } catch (err){
+        res.json(newEmp.rows[0]);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ error: "Server Error" });
+    }
+});
+
+// get all todos
+app.get("/getAllEmp", async (req, res) =>{
+    try {
+        const allEmp = await pool.query("SELECT * FROM employees");
+        res.json(allEmp.rows)
+    }catch (err){
         console.error(err.message)
     }
 })
 
-// delete todo
-app.delete("/todos/:id", async (req,res) => {
+//get a Emp
+app.get("/getEmp/:id", async (req, res) =>{
+    try {
+        const {id} = req.params;
+        const emp = await  pool.query("SELECT * FROM employees WHERE id = $1",[id])
+        res.json(emp.rows[0])
+    }catch (err){
+        console.error(err.message)
+    }
+})
+
+//update emp
+app.put("/updateEmp/:id", async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { empID, name, department_id, role_id } = req.body;
+        const updateEmp = await pool.query(
+            "UPDATE employees SET id = $1, name = $2, department_id = $3, role_id = $4 WHERE id = $5",
+            [empID, name, department_id, role_id, id]
+        );
+        res.json("Employee updated");
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ error: "Server Error" });
+    }
+});
+
+
+// delete emp
+app.delete("/deleteEmp", async (req,res) => {
     try{
         const {id} = req.params;
-        const deleteTodo = req.body;
-        const updateTodo = await pool.query(
-            "DELETE FROM todo WHERE todo_id = $1",
+        const deleteEmp = req.body;
+        const updateEmp = await pool.query(
+            "DELETE FROM employees WHERE id = $1",
             [id]
         );
         res.json("Deleted!")
