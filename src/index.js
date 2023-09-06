@@ -80,19 +80,20 @@ app.put("/updateEmp/:id", async (req, res) => {
 
 
 // delete emp
-app.delete("/deleteEmp", async (req,res) => {
-    try{
-        const {id} = req.params;
-        const deleteEmp = req.body;
-        const updateEmp = await pool.query(
+app.delete("/deleteEmp/:id", async (req, res) => {
+    try {
+        const { id } = req.params;
+        const deleteEmp = await pool.query(
             "DELETE FROM employees WHERE id = $1",
             [id]
         );
-        res.json("Deleted!")
-    } catch (err){
-        console.error(err.message)
+        res.json("Deleted!");
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ error: "Server Error" });
     }
-})
+});
+
 
 app.listen(5000,()=>{
     console.log("listening port 5000")
