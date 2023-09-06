@@ -255,6 +255,7 @@ function App() {
                 </div>
                 {filteredEmployees.map(employee => (
                     <div key={employee.id} className={`employee employee${employee.id}`}>
+
                         <div className="employee-header" onClick={() => toggleEmployeeExpand(employee.id)}>
                             <h2>{employee.name}</h2>
                             <p>Departman: {employee.department}</p>
