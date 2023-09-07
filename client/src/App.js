@@ -17,6 +17,8 @@ const getRandomColor = () => {
 
 function App() {
 
+
+
     // const initialEmployees = [
     //     { id: 1, name: 'John Doe', selectedDates: [], color: getRandomColor(), department: 'Java' },
     //     { id: 2, name: 'Jane Smith', selectedDates: [], color: getRandomColor(), department: 'Asp' },
@@ -61,7 +63,9 @@ function App() {
                 console.error("Error fetching employee names:", error);
                 setLoading(false); // Data failed to load, set loading to false
             });
+
     }, []);
+
 
     const [selectedDepartment, setSelectedDepartment] = useState('');
     const filteredEmployees = employeees.filter(employee => employee.department === selectedDepartment);
@@ -84,46 +88,57 @@ function App() {
             return;
         }
 
-        const employee = employeees.find(emp => emp.id === employeeId);
+        const employeeIndex = employeees.findIndex(emp => emp.id === employeeId);
 
         if (selectedWeek !== getWeekNumber(new Date(selectedDate))[1]) {
             alert('Sadece seçilen ilk tarihin haftası için tarih seçimi yapabilirsiniz.');
             return;
         }
 
-        // Check if employee.selectedDates is defined before accessing its length
-        if (!employee.selectedDates) {
-            employee.selectedDates = [];
-        }
+        const employee = { ...employeees[employeeIndex] };
+
+        // Ensure that selectedDates is an array
+        employee.selectedDates = Array.isArray(employee.selectedDates) ? employee.selectedDates : [];
 
         if (employee.selectedDates.length >= 5) {
             alert('En fazla 5 gün seçebilirsiniz.');
             return;
         }
 
-        const updatedEmployees = employeees.map(emp => {
-            if (emp.id === employeeId) {
-                return {
-                    ...emp,
-                    selectedDates: [...(emp.selectedDates || []), selectedDate],
-                };
-            }
-            return emp;
-        });
+        employee.selectedDates.push(selectedDate);
+
+        const updatedEmployees = [...employeees];
+        updatedEmployees[employeeIndex] = employee;
+
+        setEmployees(updatedEmployees);
+    };
+    const clearAllDates = () => {
+        const updatedEmployees = employeees.map((employee) => ({
+            ...employee,
+            selectedDates: [],
+        }));
 
         setEmployees(updatedEmployees);
     };
 
     const handleDateDelete = (employeeId, deletedDate) => {
-        const updatedEmployees = employeees.map(employee => {
-            if (employee.id === employeeId) {
-                return {
-                    ...employee,
-                    selectedDates: employee.selectedDates.filter(date => date !== deletedDate),
-                };
-            }
-            return employee;
-        });
+        const employeeIndex = employeees.findIndex(emp => emp.id === employeeId);
+
+        if (employeeIndex === -1) {
+            // Employee not found, handle the error gracefully
+            return;
+        }
+
+        const employee = { ...employeees[employeeIndex] };
+
+        // Ensure that selectedDates is an array
+        employee.selectedDates = Array.isArray(employee.selectedDates) ? employee.selectedDates : [];
+
+        // Remove the deletedDate from selectedDates
+        employee.selectedDates = employee.selectedDates.filter(date => date !== deletedDate);
+
+        const updatedEmployees = [...employeees];
+        updatedEmployees[employeeIndex] = employee;
 
         setEmployees(updatedEmployees);
     };
@@ -135,8 +150,15 @@ function App() {
     };
 
     const toggleCalendars = () => {
-        setShowCalendars(!showCalendars);
+
+        if (Array.isArray(employeees) && employeees.length > 0) {
+            setShowCalendars(!showCalendars);
+        } else {
+            // Handle the case where employeees is not properly initialized
+            console.error("Employee data is not available or empty.");
+        }
     };
+
 
     const addEmployee = () => {
         if (newEmployeeName && newEmployeeDays.length > 0 && newEmployeeDepartment) {
@@ -167,15 +189,19 @@ function App() {
     const groupDatesByDay = () => {
         const groupedDates = {};
 
-        employeees.forEach(employee => {
-            employee.selectedDates.forEach(date => {
-                const day = new Date(date).toLocaleDateString('en-US', { weekday: 'long' });
-                if (!groupedDates[day]) {
-                    groupedDates[day] = [];
+        if (Array.isArray(employeees) && employeees.length > 0) {
+            employeees.forEach(employee => {
+                if (employee.selectedDates && Array.isArray(employee.selectedDates)) {
+                    employee.selectedDates.forEach(date => {
+                        const day = new Date(date).toLocaleDateString('en-US', { weekday: 'long' });
+                        if (!groupedDates[day]) {
+                            groupedDates[day] = [];
+                        }
+                        groupedDates[day].push({ date, employeeId: employee.id });
+                    });
                 }
-                groupedDates[day].push({ date, employeeId: employee.id });
             });
-        });
+        }
 
         return groupedDates;
     };
@@ -215,14 +241,7 @@ function App() {
     const thursdayRef = useRef(null);
     const fridayRef = useRef(null);
 
-    const clearAllDates = () => {
-        const updatedEmployees = employeees.map(employee => ({
-            ...employee,
-            selectedDates: [],
-        }));
 
-        setEmployees(updatedEmployees);
-    };
     const dayOrder = {
         Monday: 1,
         Tuesday: 2,
@@ -235,7 +254,9 @@ function App() {
 
     return (
     <Fragment>
+
         <div className="App">
+
             <div className="container">
                 <h1>Çalışan Takvimi</h1>
                 <div className="add-employee">
@@ -245,7 +266,7 @@ function App() {
                             value={selectedDepartment}
                             onChange={e => setSelectedDepartment(e.target.value)}
                         >
-                            <option value="">Departman Seçin</option>
+                            <option value="">Departmant Seçin</option>
                             {availableDepartments.map((department, index) => (
                                 <option key={index} value={department}>
                                     {department}
@@ -283,9 +304,9 @@ function App() {
                     </div>
 
                 </div>
-                <div className="container">
-                    <ListAll />
-                </div>
+                {/*<div className="container">*/}
+                {/*    <ListAll />*/}
+                {/*</div>*/}
                 {Array.isArray(employeees) && employeees.length > 0 ? (
                     employeees.map(employee => (
                         <div key={employee.id} className={`employee employee${employee.id}`}>
@@ -295,6 +316,7 @@ function App() {
                             </div>
                             {expandedEmployeeId === employee.id && (
                                 <div className="employee-details">
+
                                     <input
                                         className="date-input"
                                         type="date"
@@ -319,7 +341,9 @@ function App() {
                     ))
                 ) : (
                     <p>Loading employee data...</p>
-                )}
+                )
+
+                }
                 <div className="button-container">
                     <button className="view-calendar-button" onClick={toggleCalendars}>
                         Takvimi Görüntüle
