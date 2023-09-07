@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa4a7416-ad44-4558-9b25-35046e8d887f" name="Changes" comment="Git deneme">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/47d59d79-6365-48f7-a983-b56b6d052654.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/47d59d79-6365-48f7-a983-b56b6d052654.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Components/ListAll.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/ListAll.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +141,7 @@
       <workItem from="1693901189095" duration="1717000" />
       <workItem from="1693905382193" duration="14943000" />
       <workItem from="1694021483969" duration="11703000" />
-      <workItem from="1694067098144" duration="6276000" />
+      <workItem from="1694067098144" duration="7173000" />
     </task>
     <task id="LOCAL-00001" summary="Emplooye Service added.">
       <option name="closed" value="true" />

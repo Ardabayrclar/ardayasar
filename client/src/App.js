@@ -91,21 +91,24 @@ function App() {
             return;
         }
 
-
+        // Check if employee.selectedDates is defined before accessing its length
+        if (!employee.selectedDates) {
+            employee.selectedDates = [];
+        }
 
         if (employee.selectedDates.length >= 5) {
             alert('En fazla 5 gün seçebilirsiniz.');
             return;
         }
 
-        const updatedEmployees = employeees.map(employee => {
-            if (employee.id === employeeId) {
+        const updatedEmployees = employeees.map(emp => {
+            if (emp.id === employeeId) {
                 return {
-                    ...employee,
-                    selectedDates: [...employee.selectedDates, selectedDate],
+                    ...emp,
+                    selectedDates: [...(emp.selectedDates || []), selectedDate],
                 };
             }
-            return employee;
+            return emp;
         });
 
         setEmployees(updatedEmployees);
