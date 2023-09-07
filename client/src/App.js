@@ -1,4 +1,4 @@
-import React, {Fragment, useRef, useState} from "react";
+import React, {Fragment, useEffect, useRef, useState} from "react";
 import logo from './logo.svg';
 import './App.css';
 
@@ -6,6 +6,8 @@ import './App.css';
 //components
 
 import ListAll from "./Components/ListAll";
+import Axios from 'axios';
+
 //------------------------------------------burdan sonrasi (eski App.js)
 const colorOptions = ['#FF5733', '#33FF57', '#FFD700', '#5F9EA0', '#800080','#f27e9f','#ad9df5','#f5be9d','#02f7be','#8102f7npm '];
 
@@ -15,25 +17,54 @@ const getRandomColor = () => {
 
 function App() {
 
-    const initialEmployees = [
-        { id: 1, name: 'John Doe', selectedDates: [], color: getRandomColor(), department: 'Java' },
-        { id: 2, name: 'Jane Smith', selectedDates: [], color: getRandomColor(), department: 'Asp' },
-        { id: 3, name: 'Michael Johnson', selectedDates: [], color: getRandomColor(), department: 'Satış' },
-        { id: 4, name: 'Michael Williams', selectedDates: [], color: getRandomColor(), department: 'Java' },
-        { id: 5, name: 'Emily Davis', selectedDates: [], color: getRandomColor(), department: 'Java' },
-        { id: 6, name: 'Daniel Wilson', selectedDates: [], color: getRandomColor(), department: 'Java' },
-        { id: 7, name: 'Olivia Brown', selectedDates: [], color: getRandomColor(), department: 'Java' },
-        { id: 8, name: 'Sophia Taylor', selectedDates: [], color: getRandomColor(), department: 'Asp' },
-        { id: 9, name: 'Liam Martinez', selectedDates: [], color: getRandomColor(), department: 'Asp' },
-        { id: 10, name: 'Ava Anderson', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+    // const initialEmployees = [
+    //     { id: 1, name: 'John Doe', selectedDates: [], color: getRandomColor(), department: 'Java' },
+    //     { id: 2, name: 'Jane Smith', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+    //     { id: 3, name: 'Michael Johnson', selectedDates: [], color: getRandomColor(), department: 'Satış' },
+    //     { id: 4, name: 'Michael Williams', selectedDates: [], color: getRandomColor(), department: 'Java' },
+    //     { id: 5, name: 'Emily Davis', selectedDates: [], color: getRandomColor(), department: 'Java' },
+    //     { id: 6, name: 'Daniel Wilson', selectedDates: [], color: getRandomColor(), department: 'Java' },
+    //     { id: 7, name: 'Olivia Brown', selectedDates: [], color: getRandomColor(), department: 'Java' },
+    //     { id: 8, name: 'Sophia Taylor', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+    //     { id: 9, name: 'Liam Martinez', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+    //     { id: 10, name: 'Ava Anderson', selectedDates: [], color: getRandomColor(), department: 'Asp' },
+    //
+    //
+    //
+    // ];
+     const availableDepartments = ['Asp', 'Java', 'Satış',];
+    const [loading, setLoading] = useState(true); // Loading state
+     const [employeees, setEmployees] = useState([]);
+    // const getEmployees = async () => {
+    //     try {
+    //
+    //         const response = await fetch("http://localhost:5000/getAllEmp");
+    //         const jsonData = await response.json();
+    //
+    //         setEmployees(jsonData);
+    //
+    //     }catch (err){
+    //         console.log(err.message);
+    //     }
+    // };
+    //
+    // useEffect(() =>{
+    //     getEmployees();
+    // },[]);
+    useEffect(() => {
+        Axios.get("http://localhost:5000/getAllEmp")
+            .then(response => {
+                setEmployees(response.data);
+                setLoading(false); // Data loaded, set loading to false
+            })
+            .catch(error => {
+                console.error("Error fetching employee names:", error);
+                setLoading(false); // Data failed to load, set loading to false
+            });
+    }, []);
 
-
-
-    ];
-    const availableDepartments = ['Asp', 'Java', 'Satış',];
-    const [employees, setEmployees] = useState(initialEmployees);
     const [selectedDepartment, setSelectedDepartment] = useState('');
-    const filteredEmployees = employees.filter(employee => employee.department === selectedDepartment);
+    const filteredEmployees = employeees.filter(employee => employee.department === selectedDepartment);
     const [showCalendars, setShowCalendars] = useState(false);
     const [newEmployeeName, setNewEmployeeName] = useState('');
     const [newEmployeeDays, setNewEmployeeDays] = useState([]);
@@ -53,7 +84,7 @@ function App() {
             return;
         }
 
-        const employee = employees.find(emp => emp.id === employeeId);
+        const employee = employeees.find(emp => emp.id === employeeId);
 
         if (selectedWeek !== getWeekNumber(new Date(selectedDate))[1]) {
             alert('Sadece seçilen ilk tarihin haftası için tarih seçimi yapabilirsiniz.');
@@ -67,7 +98,7 @@ function App() {
             return;
         }
 
-        const updatedEmployees = employees.map(employee => {
+        const updatedEmployees = employeees.map(employee => {
             if (employee.id === employeeId) {
                 return {
                     ...employee,
@@ -81,7 +112,7 @@ function App() {
     };
 
     const handleDateDelete = (employeeId, deletedDate) => {
-        const updatedEmployees = employees.map(employee => {
+        const updatedEmployees = employeees.map(employee => {
             if (employee.id === employeeId) {
                 return {
                     ...employee,
@@ -96,7 +127,7 @@ function App() {
 
     const saveDataToDatabase = () => {
         // Burada verileri bir API'ye göndererek veritabanına kaydetme işlemlerini yapabilirsiniz.
-        console.log('Veriler veritabanına kaydedildi:', employees);
+        console.log('Veriler veritabanına kaydedildi:', employeees);
         alert('Veriler veritabanına kaydedildi.');
     };
 
@@ -113,7 +144,7 @@ function App() {
                 color: getRandomColor(),
                 department: newEmployeeDepartment,
             };
-            setEmployees([...employees, newEmployee]);
+            setEmployees([...employeees, newEmployee]);
             setNewEmployeeName('');
             setNewEmployeeDays([]);
             setNewEmployeeDepartment('');
@@ -121,19 +152,19 @@ function App() {
     };
 
     const removeEmployee = employeeId => {
-        const updatedEmployees = employees.filter(employee => employee.id !== employeeId);
+        const updatedEmployees = employeees.filter(employee => employee.id !== employeeId);
         setEmployees(updatedEmployees);
     };
 
     const getEmployeeForDay = (selectedDate, employeeId) => {
-        const employee = employees.find(emp => emp.id === employeeId);
+        const employee = employeees.find(emp => emp.id === employeeId);
         return employee ? employee.name : '';
     };
 
     const groupDatesByDay = () => {
         const groupedDates = {};
 
-        employees.forEach(employee => {
+        employeees.forEach(employee => {
             employee.selectedDates.forEach(date => {
                 const day = new Date(date).toLocaleDateString('en-US', { weekday: 'long' });
                 if (!groupedDates[day]) {
@@ -182,7 +213,7 @@ function App() {
     const fridayRef = useRef(null);
 
     const clearAllDates = () => {
-        const updatedEmployees = employees.map(employee => ({
+        const updatedEmployees = employeees.map(employee => ({
             ...employee,
             selectedDates: [],
         }));
@@ -198,7 +229,6 @@ function App() {
         Saturday: 6,
         Sunday: 7,
     };
-
 
     return (
     <Fragment>
@@ -253,35 +283,40 @@ function App() {
                 <div className="container">
                     <ListAll />
                 </div>
-                {filteredEmployees.map(employee => (
-                    <div key={employee.id} className={`employee employee${employee.id}`}>
-
-                        <div className="employee-header" onClick={() => toggleEmployeeExpand(employee.id)}>
-                            <h2>{employee.name}</h2>
-                            <p>Departman: {employee.department}</p>
-                        </div>
-                        {expandedEmployeeId === employee.id && (
-                            <div className="employee-details">
-                                <input
-                                    className="date-input"
-                                    type="date"
-                                    onChange={e => handleDateSelect(employee.id, e.target.value)}
-                                />
-                                <div className="selected-dates">
-                                    <p className="selecteddates">Seçilen Tarihler:</p>
-                                    {employee.selectedDates.map((date, index) => (
-                                        <div key={index} className="selected-date">
-                                            <span>{date}</span>
-                                            <button onClick={() => handleDateDelete(employee.id, date)}>Sil</button>
-                                        </div>
-                                    ))}
-                                </div>
-                                <div className="selected-count">Toplam Seçilen Gün: {employee.selectedDates.length}</div>
-                                <button onClick={() => removeEmployee(employee.id)}>Çalışanı Sil</button>
+                {Array.isArray(employeees) && employeees.length > 0 ? (
+                    employeees.map(employee => (
+                        <div key={employee.id} className={`employee employee${employee.id}`}>
+                            <div className="employee-header" onClick={() => toggleEmployeeExpand(employee.id)}>
+                                <h2>{employee.name}</h2>
+                                <p>Department: {employee.department}</p>
                             </div>
-                        )}
-                    </div>
-                ))}
+                            {expandedEmployeeId === employee.id && (
+                                <div className="employee-details">
+                                    <input
+                                        className="date-input"
+                                        type="date"
+                                        onChange={e => handleDateSelect(employee.id, e.target.value)}
+                                    />
+                                    <div className="selected-dates">
+                                        <p className="selecteddates">Seçilen Tarihler:</p>
+                                        {employee.selectedDates && employee.selectedDates.map((date, index) => (
+                                            <div key={index} className="selected-date">
+                                                <span>{date}</span>
+                                                <button onClick={() => handleDateDelete(employee.id, date)}>Sil</button>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <div className="selected-count">Toplam Seçilen Gün: {employee.selectedDates ? employee.selectedDates.length : 0}</div>
+                                    <button onClick={() => removeEmployee(employee.id)}>Çalışanı Sil</button>
+                                </div>
+                            )}
+
+
+                        </div>
+                    ))
+                ) : (
+                    <p>Loading employee data...</p>
+                )}
                 <div className="button-container">
                     <button className="view-calendar-button" onClick={toggleCalendars}>
                         Takvimi Görüntüle
@@ -329,14 +364,14 @@ function App() {
                                                         key={employeeId}
                                                         className={`employee-box ${
                                                             getEmployeeForDay(dates[0].date, employeeId) ===
-                                                            employees.find(emp => emp.id === employeeId).name
+                                                            employeees.find(emp => emp.id === employeeId).name
                                                                 ? `employee${employeeId}`
                                                                 : ''
                                                         }`}
                                                     >
                                                         {getEmployeeForDay(dates[0].date, employeeId) ===
-                                                        employees.find(emp => emp.id === employeeId).name ? (
-                                                            <span>{employees.find(emp => emp.id === employeeId).name}</span>
+                                                        employeees.find(emp => emp.id === employeeId).name ? (
+                                                            <span>{employeees.find(emp => emp.id === employeeId).name}</span>
                                                         ) : null}
                                                         <button
                                                             className="delete-button"

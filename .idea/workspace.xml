@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa4a7416-ad44-4558-9b25-35046e8d887f" name="Changes" comment="Git deneme">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/47d59d79-6365-48f7-a983-b56b6d052654.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/47d59d79-6365-48f7-a983-b56b6d052654.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/47d59d79-6365-48f7-a983-b56b6d052654/storage_v2/_src_/database/Yasar_DB.4YNO8g/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/47d59d79-6365-48f7-a983-b56b6d052654/storage_v2/_src_/database/Yasar_DB.4YNO8g/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/96be6db9-68e1-4a48-80cb-9b717ae79f13.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/96be6db9-68e1-4a48-80cb-9b717ae79f13.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_08_2023_00_24__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_08_2023_00_24__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Components/ListAll.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/ListAll.js" afterDir="false" />
@@ -147,7 +142,8 @@
       <workItem from="1693855312790" duration="4215000" />
       <workItem from="1693901189095" duration="1717000" />
       <workItem from="1693905382193" duration="14943000" />
-      <workItem from="1694021483969" duration="7987000" />
+      <workItem from="1694021483969" duration="11703000" />
+      <workItem from="1694067098144" duration="6276000" />
     </task>
     <task id="LOCAL-00001" summary="Emplooye Service added.">
       <option name="closed" value="true" />

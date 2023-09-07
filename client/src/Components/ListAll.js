@@ -15,7 +15,6 @@ const ListAll = () => {
         }catch (err){
             console.log(err.message);
         }
-
     };
 
     useEffect(() =>{
@@ -35,9 +34,15 @@ const ListAll = () => {
            <tbody>
            {employees.map(employee => (
                <tr>
-                   <td>{employee.name}</td>
-                   <td>{employee.department_id}</td>
-                   <td>{employee.role_id}</td>
+                   <td>
+                       {employee.name}
+                   </td>
+                   <td>
+                       {employee.department_id}
+                   </td>
+                   <td>
+                       {employee.role_id}
+                   </td>
                </tr>
            ))}
            </tbody>
