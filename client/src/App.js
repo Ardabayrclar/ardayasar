@@ -7,6 +7,10 @@ import './App.css';
 
 import ListAll from "./Components/ListAll";
 import Axios from 'axios';
+//import pool from "../../src/server";
+//import app from "../../src/App";
+//import pool from "../../src/server";
+
 
 //------------------------------------------burdan sonrasi (eski App.js)
 const colorOptions = ['#FF5733', '#33FF57', '#FFD700', '#5F9EA0', '#800080','#f27e9f','#ad9df5','#f5be9d','#02f7be','#8102f7npm '];
@@ -37,6 +41,7 @@ function App() {
      const availableDepartments = ['Asp', 'Java', 'Satış',];
     const [loading, setLoading] = useState(true); // Loading state
      const [employeees, setEmployees] = useState([]);
+    const [calendars, setCalendars] = useState([]);
     // const getEmployees = async () => {
     //     try {
     //
@@ -63,7 +68,18 @@ function App() {
                 console.error("Error fetching employee names:", error);
                 setLoading(false); // Data failed to load, set loading to false
             });
-
+        // Fetch calendars data here in a similar manner
+        Axios.get("http://localhost:5000/getAllCalendars")
+            .then(response => {
+                setCalendars(response.data);
+            })
+            .catch(error => {
+                console.error("Error fetching calendars:", error);
+            });
+        Axios.post("http://localhost:5000/saveData")
+            .then(response =>{
+                setCalendars(response.data);
+            } )
     }, []);
 
 
@@ -90,6 +106,7 @@ function App() {
 
         const employeeIndex = employeees.findIndex(emp => emp.id === employeeId);
 
+
         if (selectedWeek !== getWeekNumber(new Date(selectedDate))[1]) {
             alert('Sadece seçilen ilk tarihin haftası için tarih seçimi yapabilirsiniz.');
             return;
@@ -97,8 +114,10 @@ function App() {
 
         const employee = { ...employeees[employeeIndex] };
 
+
         // Ensure that selectedDates is an array
         employee.selectedDates = Array.isArray(employee.selectedDates) ? employee.selectedDates : [];
+
 
         if (employee.selectedDates.length >= 5) {
             alert('En fazla 5 gün seçebilirsiniz.');
@@ -143,10 +162,50 @@ function App() {
         setEmployees(updatedEmployees);
     };
 
-    const saveDataToDatabase = () => {
-        // Burada verileri bir API'ye göndererek veritabanına kaydetme işlemlerini yapabilirsiniz.
-        console.log('Veriler veritabanına kaydedildi:', employeees);
-        alert('Veriler veritabanına kaydedildi.');
+    const saveDataToDatabase = async (req, res) => {
+        const apiUrl = "http://localhost:5000/saveData"; // Update the API URL
+        console.log(calendars);
+        if (Array.isArray(calendars)) {
+            const postData = {
+                calendars: calendars.map(calendar => ({
+                    employee_id: calendar.employee_id,
+                    work_date: calendar.work_date,
+                    calendar_id:calendar.id,
+                })),
+            };
+            Axios.post(apiUrl, postData)
+                .then(response => {
+                    console.log('Data was successfully saved to the database:', response.data);
+                    res.status(200).json({ message: 'Data was successfully saved to the database.' });
+                })
+                .catch(error => {
+                    console.error('An error occurred while saving the data:', error);
+                    res.status(500).json({ error: 'An error occurred while saving the data.' });
+                });
+        } else {
+            console.error('Calendars data is not available or is not an array.');
+            res.status(400).json({ error: 'Calendars data is not available or is not an array.' });
+        }
+
+
+
+    // Verileri API'ye gönderin
+        // app.post("/saveData", async (req, res) => {
+        //     try {
+        //         const { id, employee_id, work_date,employee_name,department_id} = req.body;
+        //         const newEmp = await pool.query(
+        //             "INSERT INTO calendars (id, employee_id, work_date,employee_name,department_id) VALUES ($1, $2, $3, $4,$5) RETURNING *",
+        //             [id, employee_id, work_date,employee_name,department_id]
+        //         );
+        //         res.json(newEmp.rows[0]);
+        //     } catch (err) {
+        //         console.error(err.message);
+        //         res.status(500).json({ error: "Server Error" });
+        //     }
+        // });
+        // // Burada verileri bir API'ye göndererek veritabanına kaydetme işlemlerini yapabilirsiniz.
+        // console.log('Veriler veritabanına kaydedildi:', employeees);
+        // alert('Veriler veritabanına kaydedildi.');
     };
 
     const toggleCalendars = () => {
