@@ -7,6 +7,9 @@ import './App.css';
 
 import ListAll from "./Components/ListAll";
 import Axios from 'axios';
+import LoginPage from "./LoginPage.js";
+import './LoginPage.css';
+//import {user} from "pg/lib/native";
 //import pool from "../../src/server";
 //import app from "../../src/App";
 //import pool from "../../src/server";
@@ -20,6 +23,25 @@ const getRandomColor = () => {
 };
 
 function App() {
+    const [authenticated, setAuthenticated] = useState(false);
+
+    // Function to authenticate the user
+    const authenticateUser = (username, role) => {
+        // You can implement your authentication logic here
+        // For this example, let's simulate authentication based on a username
+        if (username === 'user' || username === 'admin') {
+            setAuthenticated(true);
+        }
+    };
+
+
+
+
+
+
+    const [user, setUser] = useState(null);
+
+    // Define a function to authenticate the user
 
 
 
@@ -312,172 +334,191 @@ function App() {
     };
 
     return (
-    <Fragment>
-
         <div className="App">
-
-            <div className="container">
-                <h1>Çalışan Takvimi</h1>
-                <div className="add-employee">
-                    <div className="department-selection">
-
-                        <select
-                            value={selectedDepartment}
-                            onChange={e => setSelectedDepartment(e.target.value)}
-                        >
-                            <option value="">Departmant Seçin</option>
-                            {availableDepartments.map((department, index) => (
-                                <option key={index} value={department}>
-                                    {department}
-                                </option>
-                            ))}
-                        </select>
+            {/* Conditionally render either the LoginPage or the main application content */}
+            {!authenticated ? (
+                <LoginPage authenticateUser={authenticateUser} />
+            ) : (
+                /* Render your application content for authenticated users here */
+                <Fragment>
+                    {/* ... (your existing application content) */}
+                    <div className="App">
+                        {/* Your existing application content */}
+                        {/* Add the LoginPage component */}
+                        {!user ? (
+                            <LoginPage authenticateUser={authenticateUser} />
+                        ) : (
+                            <h1>Merhabalars</h1>
+                            /* Render your application content for authenticated users here */
+                        )}
                     </div>
+                    );
+                    <div className="App">
 
-                    <div className="employee-info">
-                        <input
-                            type="text"
-                            placeholder="Çalışan Adı"
-                            value={newEmployeeName}
-                            onChange={e => setNewEmployeeName(e.target.value)}
-                        />
-                        <select
-                            value={newEmployeeDepartment}
-                            onChange={e => setNewEmployeeDepartment(e.target.value)}
-                        >
-                            <option value="">Departman Seçin</option>
-                            {availableDepartments.map((department, index) => (
-                                <option key={index} value={department}>
-                                    {department}
-                                </option>
-                            ))}
-                        </select>
-                        <input
-                            type="date"
-                            value={newEmployeeDays}
-                            onChange={e => setNewEmployeeDays([...newEmployeeDays, e.target.value])}
-                        />
-                    </div>
-                    <div className="add-button">
-                        <button onClick={addEmployee}>Çalışan Ekle</button>
-                    </div>
+                        <div className="container">
+                            <h1>Çalışan Takvimi</h1>
+                            <div className="add-employee">
+                                <div className="department-selection">
 
-                </div>
-                {/*<div className="container">*/}
-                {/*    <ListAll />*/}
-                {/*</div>*/}
-                {Array.isArray(employeees) && employeees.length > 0 ? (
-                    employeees.map(employee => (
-                        <div key={employee.id} className={`employee employee${employee.id}`}>
-                            <div className="employee-header" onClick={() => toggleEmployeeExpand(employee.id)}>
-                                <h2>{employee.name}</h2>
-                                <p>Department: {employee.department}</p>
-                            </div>
-                            {expandedEmployeeId === employee.id && (
-                                <div className="employee-details">
-
-                                    <input
-                                        className="date-input"
-                                        type="date"
-                                        onChange={e => handleDateSelect(employee.id, e.target.value)}
-                                    />
-                                    <div className="selected-dates">
-                                        <p className="selecteddates">Seçilen Tarihler:</p>
-                                        {employee.selectedDates && employee.selectedDates.map((date, index) => (
-                                            <div key={index} className="selected-date">
-                                                <span>{date}</span>
-                                                <button onClick={() => handleDateDelete(employee.id, date)}>Sil</button>
-                                            </div>
+                                    <select
+                                        value={selectedDepartment}
+                                        onChange={e => setSelectedDepartment(e.target.value)}
+                                    >
+                                        <option value="">Departmant Seçin</option>
+                                        {availableDepartments.map((department, index) => (
+                                            <option key={index} value={department}>
+                                                {department}
+                                            </option>
                                         ))}
-                                    </div>
-                                    <div className="selected-count">Toplam Seçilen Gün: {employee.selectedDates ? employee.selectedDates.length : 0}</div>
-                                    <button onClick={() => removeEmployee(employee.id)}>Çalışanı Sil</button>
+                                    </select>
                                 </div>
-                            )}
 
+                                <div className="employee-info">
+                                    <input
+                                        type="text"
+                                        placeholder="Çalışan Adı"
+                                        value={newEmployeeName}
+                                        onChange={e => setNewEmployeeName(e.target.value)}
+                                    />
+                                    <select
+                                        value={newEmployeeDepartment}
+                                        onChange={e => setNewEmployeeDepartment(e.target.value)}
+                                    >
+                                        <option value="">Departman Seçin</option>
+                                        {availableDepartments.map((department, index) => (
+                                            <option key={index} value={department}>
+                                                {department}
+                                            </option>
+                                        ))}
+                                    </select>
+                                    <input
+                                        type="date"
+                                        value={newEmployeeDays}
+                                        onChange={e => setNewEmployeeDays([...newEmployeeDays, e.target.value])}
+                                    />
+                                </div>
+                                <div className="add-button">
+                                    <button onClick={addEmployee}>Çalışan Ekle</button>
+                                </div>
 
-                        </div>
-                    ))
-                ) : (
-                    <p>Loading employee data...</p>
-                )
-
-                }
-                <div className="button-container">
-                    <button className="view-calendar-button" onClick={toggleCalendars}>
-                        Takvimi Görüntüle
-                    </button>
-
-                    <button className="save-data-button" onClick={saveDataToDatabase}>
-                        Veriyi Kaydet
-                    </button>
-                    <div className="clear-week">
-                        <button onClick={clearAllDates}>Haftayı Sil</button>
-                    </div>
-                </div>
-                {showCalendars && (
-                    <div className="calendars-container">
-                        <div className="week-days">
-                            <div ref={mondayRef} className="week-day" onClick={() => scrollToRef(mondayRef)}>
-                                Pazartesi {getEmployeeCountForDay('Monday')} Kişi
                             </div>
-                            <div ref={tuesdayRef} className="week-day" onClick={() => scrollToRef(tuesdayRef)}>
-                                Salı {getEmployeeCountForDay('Tuesday')} Kişi
-                            </div>
-                            <div ref={wednesdayRef} className="week-day" onClick={() => scrollToRef(wednesdayRef)}>
-                                Çarşamba {getEmployeeCountForDay('Wednesday')} Kişi
-                            </div>
-                            <div ref={thursdayRef} className="week-day" onClick={() => scrollToRef(thursdayRef)}>
-                                Perşembe {getEmployeeCountForDay('Thursday')} Kişi
-                            </div>
-                            <div ref={fridayRef} className="week-day" onClick={() => scrollToRef(fridayRef)}>
-                                Cuma {getEmployeeCountForDay('Friday')} Kişi
-                            </div>
-                        </div>
+                            {/*<div className="container">*/}
+                            {/*    <ListAll />*/}
+                            {/*</div>*/}
+                            {Array.isArray(employeees) && employeees.length > 0 ? (
+                                employeees.map(employee => (
+                                    <div key={employee.id} className={`employee employee${employee.id}`}>
+                                        <div className="employee-header" onClick={() => toggleEmployeeExpand(employee.id)}>
+                                            <h2>{employee.name}</h2>
+                                            <p>Department: {employee.department}</p>
+                                        </div>
+                                        {expandedEmployeeId === employee.id && (
+                                            <div className="employee-details">
 
-                        <div className="calendar-group-container">
+                                                <input
+                                                    className="date-input"
+                                                    type="date"
+                                                    onChange={e => handleDateSelect(employee.id, e.target.value)}
+                                                />
+                                                <div className="selected-dates">
+                                                    <p className="selecteddates">Seçilen Tarihler:</p>
+                                                    {employee.selectedDates && employee.selectedDates.map((date, index) => (
+                                                        <div key={index} className="selected-date">
+                                                            <span>{date}</span>
+                                                            <button onClick={() => handleDateDelete(employee.id, date)}>Sil</button>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                                <div className="selected-count">Toplam Seçilen Gün: {employee.selectedDates ? employee.selectedDates.length : 0}</div>
+                                                <button onClick={() => removeEmployee(employee.id)}>Çalışanı Sil</button>
+                                            </div>
+                                        )}
 
-                            {Object.entries(groupDatesByDay())
-                                .sort(([dayA], [dayB]) => dayOrder[dayA] - dayOrder[dayB])
-                                .map(([day, dates]) => (
-                                    <div key={day} className="calendar-group">
-                                        <h3>{day}</h3>
-                                        <div className="employee-boxes">
-                                            {Array(getEmployeeCountForDay(day)).fill(null).map((_, index) => {
-                                                const employeeId = dates[index].employeeId;
-                                                return (
-                                                    <div
-                                                        key={employeeId}
-                                                        className={`employee-box ${
-                                                            getEmployeeForDay(dates[0].date, employeeId) ===
-                                                            employeees.find(emp => emp.id === employeeId).name
-                                                                ? `employee${employeeId}`
-                                                                : ''
-                                                        }`}
-                                                    >
-                                                        {getEmployeeForDay(dates[0].date, employeeId) ===
-                                                        employeees.find(emp => emp.id === employeeId).name ? (
-                                                            <span>{employeees.find(emp => emp.id === employeeId).name}</span>
-                                                        ) : null}
-                                                        <button
-                                                            className="delete-button"
-                                                            onClick={() => handleDateDelete(employeeId, dates[0].date)}
-                                                        >
-                                                            Sil
-                                                        </button>
-                                                    </div>
-                                                );
-                                            })}
+
+                                    </div>
+                                ))
+                            ) : (
+                                <p>Loading employee data...</p>
+                            )
+
+                            }
+                            <div className="button-container">
+                                <button className="view-calendar-button" onClick={toggleCalendars}>
+                                    Takvimi Görüntüle
+                                </button>
+
+                                <button className="save-data-button" onClick={saveDataToDatabase}>
+                                    Veriyi Kaydet
+                                </button>
+                                <div className="clear-week">
+                                    <button onClick={clearAllDates}>Haftayı Sil</button>
+                                </div>
+                            </div>
+                            {showCalendars && (
+                                <div className="calendars-container">
+                                    <div className="week-days">
+                                        <div ref={mondayRef} className="week-day" onClick={() => scrollToRef(mondayRef)}>
+                                            Pazartesi {getEmployeeCountForDay('Monday')} Kişi
+                                        </div>
+                                        <div ref={tuesdayRef} className="week-day" onClick={() => scrollToRef(tuesdayRef)}>
+                                            Salı {getEmployeeCountForDay('Tuesday')} Kişi
+                                        </div>
+                                        <div ref={wednesdayRef} className="week-day" onClick={() => scrollToRef(wednesdayRef)}>
+                                            Çarşamba {getEmployeeCountForDay('Wednesday')} Kişi
+                                        </div>
+                                        <div ref={thursdayRef} className="week-day" onClick={() => scrollToRef(thursdayRef)}>
+                                            Perşembe {getEmployeeCountForDay('Thursday')} Kişi
+                                        </div>
+                                        <div ref={fridayRef} className="week-day" onClick={() => scrollToRef(fridayRef)}>
+                                            Cuma {getEmployeeCountForDay('Friday')} Kişi
                                         </div>
                                     </div>
-                                ))}
+
+                                    <div className="calendar-group-container">
+
+                                        {Object.entries(groupDatesByDay())
+                                            .sort(([dayA], [dayB]) => dayOrder[dayA] - dayOrder[dayB])
+                                            .map(([day, dates]) => (
+                                                <div key={day} className="calendar-group">
+                                                    <h3>{day}</h3>
+                                                    <div className="employee-boxes">
+                                                        {Array(getEmployeeCountForDay(day)).fill(null).map((_, index) => {
+                                                            const employeeId = dates[index].employeeId;
+                                                            return (
+                                                                <div
+                                                                    key={employeeId}
+                                                                    className={`employee-box ${
+                                                                        getEmployeeForDay(dates[0].date, employeeId) ===
+                                                                        employeees.find(emp => emp.id === employeeId).name
+                                                                            ? `employee${employeeId}`
+                                                                            : ''
+                                                                    }`}
+                                                                >
+                                                                    {getEmployeeForDay(dates[0].date, employeeId) ===
+                                                                    employeees.find(emp => emp.id === employeeId).name ? (
+                                                                        <span>{employeees.find(emp => emp.id === employeeId).name}</span>
+                                                                    ) : null}
+                                                                    <button
+                                                                        className="delete-button"
+                                                                        onClick={() => handleDateDelete(employeeId, dates[0].date)}
+                                                                    >
+                                                                        Sil
+                                                                    </button>
+                                                                </div>
+                                                            );
+                                                        })}
+                                                    </div>
+                                                </div>
+                                            ))}
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     </div>
-                )}
-            </div>
+                </Fragment>
+            )}
         </div>
-    </Fragment>
-  );
+    );
 }
 
 export default App;
