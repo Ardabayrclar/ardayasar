@@ -43,6 +43,48 @@ app.post("/createEmp", async (req, res) => {
     }
 });
 
+app.post('/auth', (req, res) => {
+
+    // Simulate authentication logic here
+    const { username, password } = req.body;
+
+    if (username === 'teamlead' && password === 'teamleadpass') {
+        // Authentication successful
+       // const user = { username: 'user123' };
+        //const token = 'your_access_token'; // Generate or retrieve a token
+
+        res.json({
+            success: true,
+            userRole: 'teamlead',
+        });
+    }else if  (username === 'admin' && password === 'adminpass') {
+        // Authentication successful
+        // const user = { username: 'user123' };
+        // const token = 'your_access_token'; // Generate or retrieve a token
+
+        res.json({
+            success: true,
+            userRole: 'admin',
+        });
+    }else if (username === 'employee' && password === 'employeepass') {
+        // Authentication successful
+
+
+        res.json({
+            success: true,
+            userRole: 'employee',
+        });
+    } else {
+        // Authentication failed
+        res.status(401).json({
+            success: false,
+            message: 'Authentication failed',
+
+        });
+    }
+});
+
+
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
@@ -183,6 +225,6 @@ app.get("/getAllCalendars", async (req, res) => {
     });
 
 
-    app.listen(5000, () => {
-        console.log("listening port 5000")
+    app.listen(3000, () => {
+        console.log("listening port 3000")
     })

@@ -18,8 +18,8 @@ import TeamLeadPage from "./TeamLeadPage.js"; // Import your TeamLeadPage compon
 import EmployeePage from "./EmployeePage.js"; // Import your EmployeePage component
 
 
-//------------------------------------------burdan sonrasi (eski App.js)
-const colorOptions = ['#FF5733', '#33FF57', '#FFD700', '#5F9EA0', '#800080','#f27e9f','#ad9df5','#f5be9d','#02f7be','#8102f7npm '];
+
+const colorOptions = ['#FF5733', '#33FF57', '#FFD700', '#5F9EA0', '#800080','#f27e9f','#ad9df5','#f5be9d','#02f7be','#8102f7'];
 
 const getRandomColor = () => {
     return colorOptions[Math.floor(Math.random() * colorOptions.length)];
@@ -29,38 +29,43 @@ function App() {
     const [authenticated, setAuthenticated] = useState(false);
     const [userRole, setUserRole] = useState("");
 
-    const authenticateUser = (username, role) => {
-    // Function to authenticate the user
-    if (username === 'admin') {
-        setAuthenticated(true);
-        setUserRole('admin');
-    } else if (username === 'teamlead') {
-        setAuthenticated(true);
-        setUserRole('teamlead');
-    } else if (username === 'employee') {
-        setAuthenticated(true);
-        setUserRole('employee');
-    }
+    const authenticateUser = (username, password) => {
+        // Function to authenticate the user
+        Axios.post('http://localhost:3000/auth', { username, password })
+            .then(response => {
+                const { success, userRole } = response.data;
+
+                if (success) {
+                    setAuthenticated(true);
+                    console.log(userRole);
+                    setUserRole(userRole);
+                } else {
+                    console.error('Authentication failed');
+                }
+            })
+            .catch(error => {
+                console.error('Authentication error:', error);
+            });
     };
 
-
-return (
-    <div className="App">
-        {/* Conditionally render different pages based on user role */}
-        {!authenticated ? (
-            <LoginPage authenticateUser={authenticateUser} />
-        ) : (
-            <Fragment>
-                {userRole === 'admin' && <AdminPage />} {/* Render admin page */}
-                {userRole === 'teamlead' && <TeamLeadPage />} {/* Render team lead page */}
-                {userRole === 'employee' && <EmployeePage />} {/* Render employee page */}
-            </Fragment>
-        )}
-    </div>
-);
+    return (
+        <div className="App">
+            {/* Conditionally render different pages based on user role */}
+            {!authenticated ? (
+                <LoginPage authenticateUser={authenticateUser} />
+            ) : (
+                <Fragment>
+                    {userRole === 'admin' && <AdminPage />}
+                    {userRole === 'teamlead' && <TeamLeadPage />}
+                    {userRole === 'employee' && <EmployeePage />}
+                </Fragment>
+            )}
+        </div>
+    );
 }
 
 export default App;
+
 
 //     const [user, setUser] = useState(null);
 //

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './LoginPage.css'; // Stil dosyanızı eklemeyi unutmayın
+import Axios from 'axios'; // Import Axios
 
 function LoginPage({ authenticateUser }) {
     const [username, setUsername] = useState('');
@@ -7,16 +8,8 @@ function LoginPage({ authenticateUser }) {
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleLogin = () => {
-        // Basitçe kullanıcı adı ve şifre kontrolü yapalım
-        if (username === 'employee' && password === 'employeepass') {
-            authenticateUser('employee', 'employee');
-        } else if (username === 'admin' && password === 'adminpass') {
-            authenticateUser('admin', 'admin');
-        } else if (username === 'teamlead' && password === 'teamleadpass') {
-            authenticateUser('teamlead', 'teamlead');
-        }else {
-            setErrorMessage('Hatalı kullanıcı adı veya şifre');
-        }
+      authenticateUser(username,password);
+
     };
 
     return (

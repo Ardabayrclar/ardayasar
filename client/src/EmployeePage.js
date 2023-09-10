@@ -24,7 +24,6 @@ const getRandomColor = () => {
 };
 function EmployeePage() {
 
-
     const availableDepartments = ['Asp', 'Java', 'Satış',];
     const [loading, setLoading] = useState(true); // Loading state
     const [employeees, setEmployees] = useState([]);
@@ -45,32 +44,64 @@ function EmployeePage() {
 // useEffect(() =>{
 //     getEmployees();
 // },[]);
+
+
+//     const apiUrl = "http://localhost:5000/auth"; // Replace with your actual API endpoint
+//     const userData = {
+//         username: "user123",
+//         password: "secretpassword"
+//     };
     useEffect(() => {
-        Axios.get("http://localhost:5000/getAllEmp")
+        // Axios.post("http://localhost:5000/auth")
+        //     .then(response => {
+        //         setEmployees(response.data);
+        //         setLoading(false); // Data loaded, set loading to false
+        //     })
+        //     .catch(error => {
+        //         console.error("Error fetching employee names:", error);
+        //         setLoading(false); // Data failed to load, set loading to false
+        //     });
+        // Axios.post(apiUrl, userData, {
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     }
+        // })
+        //     .then(response => {
+        //         const data = response.data;
+        //         if (data.success) {
+        //             // Authentication was successful, handle the response and token here
+        //             const user = data.user;
+        //             const token = data.token;
+        //             console.log("Authentication successful:", user);
+        //             console.log("Access token:", token);
+        //         } else {
+        //             // Authentication failed, handle the error message here
+        //             const errorMessage = data.message;
+        //             console.error("Authentication failed:", errorMessage);
+        //         }
+        //     })
+         //   .catch(error => {
+         //        // Handle any network or other errors here
+         //        console.error("An error occurred:", error);
+         //    });
+        // Fetch calendars data here in a similar manner
+        Axios.get("http://localhost:3000/getEmp/8")
             .then(response => {
                 setEmployees(response.data);
-                setLoading(false); // Data loaded, set loading to false
-            })
-            .catch(error => {
-                console.error("Error fetching employee names:", error);
-                setLoading(false); // Data failed to load, set loading to false
-            });
-        // Fetch calendars data here in a similar manner
-        Axios.get("http://localhost:5000/getAllCalendars")
-            .then(response => {
-                setCalendars(response.data);
+                setLoading(false);
             })
             .catch(error => {
                 console.error("Error fetching calendars:", error);
+                setLoading(false);
             });
-        Axios.post("http://localhost:5000/saveData")
+        Axios.post("http://localhost:3000/saveData")
             .then(response => {
                 setCalendars(response.data);
             })
     }, []);
 
     const [selectedDepartment, setSelectedDepartment] = useState('');
-    const filteredEmployees = employeees.filter(employee => employee.department === selectedDepartment);
+    //const filteredEmployees = employeees.filter(employee => employee.department === selectedDepartment);
     const [showCalendars, setShowCalendars] = useState(false);
     const [newEmployeeName, setNewEmployeeName] = useState('');
     const [newEmployeeDays, setNewEmployeeDays] = useState([]);
@@ -149,7 +180,7 @@ function EmployeePage() {
     };
 
     const saveDataToDatabase = async (req, res) => {
-        const apiUrl = "http://localhost:5000/saveData"; // Update the API URL
+        const apiUrl = "http://localhost:3000/saveData"; // Update the API URL
         console.log(calendars);
         if (Array.isArray(calendars)) {
             const postData = {
@@ -394,9 +425,6 @@ function EmployeePage() {
                 )}
             </div>
         </div>
-
-
-
 
     );
 }

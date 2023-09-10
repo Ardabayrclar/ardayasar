@@ -5,13 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa4a7416-ad44-4558-9b25-35046e8d887f" name="Changes" comment="Git deneme">
-      <change afterPath="$PROJECT_DIR$/client/src/AdminPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/EmployeePage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/TeamLeadPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/47d59d79-6365-48f7-a983-b56b6d052654.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/47d59d79-6365-48f7-a983-b56b6d052654.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/47d59d79-6365-48f7-a983-b56b6d052654/storage_v2/_src_/database/Yasar_DB.4YNO8g/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/47d59d79-6365-48f7-a983-b56b6d052654/storage_v2/_src_/database/Yasar_DB.4YNO8g/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/EmployeePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/EmployeePage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/LoginPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/TeamLeadPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/TeamLeadPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +157,7 @@
       <workItem from="1694156589053" duration="5173000" />
       <workItem from="1694163858786" duration="25762000" />
       <workItem from="1694244442032" duration="39352000" />
-      <workItem from="1694330260940" duration="5853000" />
+      <workItem from="1694330260940" duration="22795000" />
     </task>
     <task id="LOCAL-00001" summary="Emplooye Service added.">
       <option name="closed" value="true" />

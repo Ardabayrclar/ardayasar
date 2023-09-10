@@ -45,7 +45,7 @@ function TeamLeadPage() {
 //     getEmployees();
 // },[]);
     useEffect(() => {
-        Axios.get("http://localhost:5000/getAllEmp")
+        Axios.get("http://localhost:3000/getAllEmp")
             .then(response => {
                 setEmployees(response.data);
                 setLoading(false); // Data loaded, set loading to false
@@ -55,14 +55,14 @@ function TeamLeadPage() {
                 setLoading(false); // Data failed to load, set loading to false
             });
         // Fetch calendars data here in a similar manner
-        Axios.get("http://localhost:5000/getAllCalendars")
+        Axios.get("http://localhost:3000/getAllCalendars")
             .then(response => {
                 setCalendars(response.data);
             })
             .catch(error => {
                 console.error("Error fetching calendars:", error);
             });
-        Axios.post("http://localhost:5000/saveData")
+        Axios.post("http://localhost:3000/saveData")
             .then(response => {
                 setCalendars(response.data);
             })
