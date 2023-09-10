@@ -8,11 +8,13 @@ function LoginPage({ authenticateUser }) {
 
     const handleLogin = () => {
         // Basitçe kullanıcı adı ve şifre kontrolü yapalım
-        if (username === 'user' && password === 'userpass') {
-            authenticateUser('user', 'normal');
+        if (username === 'employee' && password === 'employeepass') {
+            authenticateUser('employee', 'employee');
         } else if (username === 'admin' && password === 'adminpass') {
             authenticateUser('admin', 'admin');
-        } else {
+        } else if (username === 'teamlead' && password === 'teamleadpass') {
+            authenticateUser('teamlead', 'teamlead');
+        }else {
             setErrorMessage('Hatalı kullanıcı adı veya şifre');
         }
     };
